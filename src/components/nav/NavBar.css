@@ -1,0 +1,14 @@
+.nav-main{
+    color: rgb(60, 64, 68);
+    background-color: rgb(124, 203, 235);
+}
+nav li:hover{
+    color: black;
+    font-weight: bold;
+}
+.nav-list{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+}

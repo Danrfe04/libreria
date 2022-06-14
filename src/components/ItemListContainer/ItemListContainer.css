@@ -1,0 +1,10 @@
+.pzCarro{
+    border-radius: 10px;
+    border-color: rgb(240, 171, 81);
+    background-color: antiquewhite;
+    color: red;
+}
+.pzCarro:hover{
+    background-color: black;
+    color: aqua;
+}
