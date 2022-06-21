@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import ItemList from "../ItemList/itemList";
+import ItemList from "../ItemList/ItemList";
 import {products} from "../mock/products";
 
 const ItemListContainer = ({saludo}) =>{
@@ -12,16 +12,20 @@ const ItemListContainer = ({saludo}) =>{
       }, 2000);
       });
 
-      pullProducts.then((resolve)=>{
+      pullProducts
+      .then((resolve)=>{
         setProductos(resolve);
       })
+      .catch((error) =>{
+        console.log(error);
+      })
     }, []);
-    console.log(productos);
+   /*  console.log(productos); */
 
   return( 
     <>
       <div>{saludo}</div>
-      <ItemList items={products}/>
+      <ItemList items={productos}/>
    </>
   );
 }; 
