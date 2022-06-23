@@ -1,6 +1,7 @@
 export const products = [
     {
     id: 1,
+    category: "colección",
     name: "libro 1",
     price: 150,
     stock: 4,
@@ -8,6 +9,7 @@ export const products = [
 },
 {
     id: 2,
+    category: "bolsillo",
     name: "libro 2",
     price: 250,
     stock: 7,
@@ -15,6 +17,7 @@ export const products = [
 },
 {
     id: 3,
+    category: "bolsillo",
     name: "libro 3",
     price: 450,
     stock: 8,
@@ -22,6 +25,7 @@ export const products = [
 },
 {
     id: 4,
+    category: "colección",
     name: "libro 4",
     price: 1250,
     stock: 2,
@@ -29,6 +33,7 @@ export const products = [
 },
 {
     id: 5,
+    category: "bolsillo",   
     name: "libro 5",
     price: 50,
     stock: 54,
