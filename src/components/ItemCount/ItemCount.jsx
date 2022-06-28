@@ -1,7 +1,8 @@
 import {useState} from 'react';
 import "../ItemListContainer/ItemListContainer.css"
 
-export default function ItemCount({initial,stock}){
+export default function ItemCount({initial,stock, onAdd}){
+
 
     const[count,setCount]=useState(initial);
 
@@ -23,7 +24,7 @@ export default function ItemCount({initial,stock}){
             <span>{count}</span>
             <button className="pzCarro" onClick={add}>+</button>
             <br/>
-            <button>Agregar</button>
+            <button onClick={onAdd}>Agregar</button>
         </div>
     )
 }

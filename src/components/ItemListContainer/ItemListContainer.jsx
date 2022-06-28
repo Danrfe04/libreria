@@ -1,14 +1,23 @@
 import React, {useState, useEffect} from "react";
+import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
 import {products} from "../mock/products";
 
 const ItemListContainer = ({saludo}) =>{
   const [productos, setProductos] = useState ([]);
+  const {categoryId} = useParams();
 
   useEffect(() =>{
     const pullProducts = new Promise ((resolve,reject) =>{
       setTimeout(() => {
-        resolve(products);
+        if (categoryId === undefined)
+         resolve(products);
+         else{
+          const itemFound = products.filter(detalle =>{
+            return detalle.category === categoryId
+          })
+          resolve (itemFound);
+         }
       }, 2000);
       });
 
@@ -19,7 +28,7 @@ const ItemListContainer = ({saludo}) =>{
       .catch((error) =>{
         console.log(error);
       })
-    }, []);
+    }, [categoryId]);
    /*  console.log(productos); */
 
   return( 
@@ -31,3 +40,6 @@ const ItemListContainer = ({saludo}) =>{
 }; 
 
 export default ItemListContainer;
+
+/* 
+ */
