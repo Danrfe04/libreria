@@ -3,9 +3,13 @@ import NavBar from "./components/nav/NavBar";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import {BrowserRouter,Route,Routes} from 'react-router-dom';
 import ContactPage from "./pages/Contact";
+import CartWidget from "./components/nav/CartWidget";
+import {CartProvider } from "./context/CartContext";
+
 function App() {
   return (
     <div className="App">
+      <CartProvider >
       <BrowserRouter>
         <NavBar/>
         <Routes>
@@ -13,8 +17,10 @@ function App() {
           <Route path="/detalle/:itemId" element={<ItemDetailContainer saludo="Detalle de producto"/>}/>
           <Route path="/category/:categoryId" element={<ItemListContainer saludo="Categoría de producto"/>}/>
           <Route path="/detalle/contact" element={<ContactPage/>}/>
+          <Route path="/cart" element = {<CartWidget/>} />
         </Routes>
       </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }

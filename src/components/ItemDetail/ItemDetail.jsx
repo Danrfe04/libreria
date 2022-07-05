@@ -1,22 +1,20 @@
 import React, { useState } from 'react'
-import { useEffect } from 'react';
+/* import { useEffect } from 'react'; */
 import ItemCount from '../ItemCount/ItemCount'
+import {Link} from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 const ItemDetail = ({prod}) => {
 
-  const [isAdded,setAdded] = React.useState(false);
-  useEffect(()=>{
-    if(useState === false){
+const {addToCart} = useContext(CartContext)
 
-    }
+const [isAdded,setAdded] = useState(0);
+
+  const handleOnAdd = (qtt) => {
+    setAdded(qtt);
+    addToCart(prod,qtt)
   }
-  )
-
-
-  function handleOnAdd(qt) {
-    setAdded(true);
-    
-}
 
   return (
     <div>
@@ -25,7 +23,12 @@ const ItemDetail = ({prod}) => {
         <p>{prod.id}</p>
         <p>{prod.stock}</p>
         <p>{prod.price}</p>
-        <ItemCount onAdd={handleOnAdd} stock={5} initial={1}/>
+        {
+          isAdded === 0 ? (
+            <ItemCount stock={prod.stock} initial = {1} onAdd = {handleOnAdd} />
+          ) : (
+            <Link to = "/cart">Ir al carrito</Link>
+          )}
     </div>
   )
 }

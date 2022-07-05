@@ -24,7 +24,7 @@ export default function ItemCount({initial,stock, onAdd}){
             <span>{count}</span>
             <button className="pzCarro" onClick={add}>+</button>
             <br/>
-            <button onClick={onAdd}>Agregar</button>
+            <button onClick={()=>onAdd(count)}>Agregar</button>
         </div>
     )
 }
