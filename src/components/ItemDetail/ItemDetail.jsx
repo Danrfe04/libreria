@@ -9,7 +9,7 @@ const ItemDetail = ({prod}) => {
 
 const {addToCart} = useContext(CartContext)
 
-const [isAdded,setAdded] = useState(0);
+const [isAdded,setAdded,] = useState(0);
 
   const handleOnAdd = (qtt) => {
     setAdded(qtt);

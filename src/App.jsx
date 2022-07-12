@@ -6,7 +6,9 @@ import ContactPage from "./pages/Contact";
 import CartWidget from "./components/nav/CartWidget";
 import {CartProvider } from "./context/CartContext";
 
+
 function App() {
+
   return (
     <div className="App">
       <CartProvider >

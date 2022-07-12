@@ -1,31 +1,30 @@
 import React, {useState, useEffect} from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import {products} from "../mock/products";
 import { useParams } from "react-router-dom";
+import { getItemCategory } from "../../services/firestore";
 
 const ItemDetailContainer = ({saludo}) => {
     const [prodDetail,setProdDetail] = useState ({});
-    const {itemId} = useParams();
+    const {categoryId} = useParams();
     useEffect (() =>{
-        const bringProduct = new Promise ((resolve,reject) =>{
-
-            setTimeout(() => {
-                let itemNumber = parseInt(itemId)
-                const itemFound = products.find(detalle =>{
-                    return detalle.id === itemNumber
-                })
-                resolve(itemFound);
-              }, 2000);
-              });
-
-            bringProduct
+        if (categoryId){
+            getItemCategory(categoryId)
+            .then((resolve)=>{
+              setProdDetail(resolve);
+            })
+            .catch((error)=>{
+              console.log(error);
+            });
+          } else {
+            getItemCategory(categoryId)
             .then((resolve) =>{
                 setProdDetail(resolve);
             })
             .catch((error)=>{
                 console.log(error);
             })
-        }, [itemId]);
+        }
+        }, [categoryId]);
     return(
         <>
             <div>{saludo}</div>
